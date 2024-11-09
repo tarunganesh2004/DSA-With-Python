@@ -1,6 +1,6 @@
-p = [5, 6, 2]
-w = [3, 4, 1]
-cap = 6
+p = [1,2,3]
+w = [4,5,1]
+cap = 3
 
 # Top down approach
 def knapDp(p,w,cap):
@@ -15,8 +15,8 @@ def knapDp(p,w,cap):
                 # exclude
                 dp[i][j]=dp[i-1][j]
 
-    return dp[n][cap],dp
-
+    return dp[n][cap],dp #O(n*cap)
+ 
 result, dp_table = knapDp(p, w, cap)
 print("Maximum Profit:", result)
 print("DP Table:")
