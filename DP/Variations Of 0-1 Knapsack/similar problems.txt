@@ -1,0 +1,7 @@
+So using the same approach as 0-1 knapsack, we can solve the following problems:
+1. Subset Sum Problem: Given a set of positive integers, is there a subset whose sum is equal to a given number?
+2. Equal Sum Partition Problem: Given a set of positive integers, can it be partitioned into two subsets such that the sum of elements in both subsets is the same?
+3. Count of Subset Sum Problem: Given a set of positive integers, how many subsets have a sum equal to a given number?
+4. Minimum Subset Sum Difference Problem: Given a set of positive integers, find the minimum difference between the sums of two subsets.
+5. Target Sum Problem: Given a set of positive integers and a target sum, find the number of ways to assign '+' or '-' signs to the numbers such that the sum equals the target.
+6. Partition Equal Subset Sum Problem: Given a set of positive integers, can it be partitioned into two subsets such that the sum of elements in both subsets is equal?
