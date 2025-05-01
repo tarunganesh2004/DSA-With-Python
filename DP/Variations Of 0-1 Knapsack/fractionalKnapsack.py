@@ -1,4 +1,3 @@
-from calendar import c
 
 
 p=[60,100,120]
