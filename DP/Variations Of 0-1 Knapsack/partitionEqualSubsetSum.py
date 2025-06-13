@@ -20,3 +20,18 @@ def recursion(arr,cur_ele,target):
 
 print(recursion(nums,0,sum(nums)//2)) # O(2^n)
 
+# memoization using lru_cache
+from functools import lru_cache  # noqa: E402
+@lru_cache(maxsize=None)
+def memoization(arr,cur_ele,target):
+    if target==0:
+        return True
+    if target<0 or cur_ele==len(arr):
+        return False
+    # include
+    include=memoization(arr,cur_ele+1,target-arr[cur_ele])
+    # exclude
+    exclude=memoization(arr,cur_ele+1,target)
+    return include or exclude
+
+print(memoization(tuple(nums),0,sum(nums)//2)) # O(n*target)
