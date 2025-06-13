@@ -35,3 +35,22 @@ def memoization(arr,cur_ele,target):
     return include or exclude
 
 print(memoization(tuple(nums),0,sum(nums)//2)) # O(n*target)
+
+# memoization using 2d array
+def memoization_2d(arr, cur_ele, target, dp):
+    if target==0:
+        return True
+    if target<0 or cur_ele==len(arr):
+        return False
+    if dp[cur_ele][target] != -1:
+        return dp[cur_ele][target]
+    # include
+    include = memoization_2d(arr, cur_ele + 1, target - arr[cur_ele], dp)
+    # exclude
+    exclude = memoization_2d(arr, cur_ele + 1, target, dp)
+    dp[cur_ele][target] = include or exclude
+    return dp[cur_ele][target]
+
+target=sum(nums)//2
+dp=[[-1]*(target+1) for _ in range(len(nums)+1)]
+print(memoization_2d(nums, 0, target, dp)) # O(n*target)
