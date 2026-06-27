@@ -1,16 +1,44 @@
-p=[5,6,2]
-w=[3,4,1]
-cap=6
+wt=[1,3,4]
+profits=[15,20,30]
+W=4
 
-def knapsack(w,p,cap,n):
-    if n==0 or cap==0:
-        return 0
-    if w[n-1]>cap:
+def recursive(wt,profits,W):
+    n=len(wt)
+    # Maximum profit obtainable using items from index i onward with remaining capacity cap.
+    def solve(i,cap):
+        if i==n:
+            return 0
+        
         # skip
-        return knapsack(w,p,cap,n-1)
+        not_take=solve(i+1,cap)
+        take=0
+        if wt[i]<=cap:
+            take=profits[i]+solve(i+1,cap-wt[i])
+
+        return max(take,not_take)
     
-    else:
-        # include
-        return max(knapsack(w,p,cap,n-1),p[n-1]+knapsack(w,p,cap-w[n-1],n-1))
+    return solve(0,W)
+
+
+def memoization(wt,profits,W):
+    n=len(wt)
+
+    dp=[[-1]*(W+1) for _ in range(n)]
+
+    def solve(i,cap): # this reduces to O(nW) TC
+        if i==n:
+            return 0
+        
+        if dp[i][cap]!=-1:
+            return dp[i][cap]
+        
+        not_take=solve(i+1,cap)
+        take=0
+        if wt[i]<=cap:
+            take=profits[i]+solve(i+1,cap-wt[i])
+
+        dp[i][cap]=max(take,not_take)
+
+        return dp[i][cap]
     
-print(knapsack(w,p,cap,len(p)))
+    return solve(0,W)
