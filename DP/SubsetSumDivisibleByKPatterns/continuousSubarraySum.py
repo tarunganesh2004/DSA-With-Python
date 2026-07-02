@@ -1,6 +1,5 @@
 # LC 523, Continuous Subarray sum
 # before we checked for subset
-
 nums=[23,2,4,6,7]
 k=6
 
@@ -47,3 +46,11 @@ Subarray divisible by k
 ↓
 Store first occurrence of remainder.
 """
+
+# Subarray + Divisible by K
+
+# Use:
+
+# Prefix Sum + Modulo
+# Existence
+# remainder -> first index
