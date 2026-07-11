@@ -1,5 +1,3 @@
 @"
-DP/
-Backtracking/
-Sliding Window/
+
 "@ | Set-Content .gitignore
