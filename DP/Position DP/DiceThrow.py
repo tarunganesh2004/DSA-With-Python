@@ -1,4 +1,4 @@
-# Dice Throw (Classic Position + Sum DP)
+# Dice Throw (Classic Position + Sum DP) LC 1155
 """
 You have N dice, each having faces 1 to 6.
 
@@ -36,3 +36,11 @@ def tabulation(n,target):
 
 print(bruteForce(n,target))
 print(tabulation(n,target))
+
+"""
+This problem can be further extended to leetcode 1155
+in this we have n dice, k faces, should sum target
+so logic is all same as above
+but in for loop we iterate face value upto k+1
+for face in range(1,k+1)
+"""
